@@ -10,9 +10,9 @@ var vendors = ['ms', 'moz', 'webkit', 'o'];
 var requestAnimationFrame;
 var cancelAnimationFrame;
 
-if(typeof window != "undefined"){
-  requestAnimationFrame = window.requestAnimationFrame;
-  cancelAnimationFrame = window.cancelAnimationFrame;
+if(typeof window != "undefined") {
+  requestAnimationFrame = window.requestAnimationFrame.bind(window);
+  cancelAnimationFrame = window.cancelAnimationFrame.bind(window);
   for (var x = 0; x < vendors.length && !requestAnimationFrame; ++x) {
     requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
     cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame']
